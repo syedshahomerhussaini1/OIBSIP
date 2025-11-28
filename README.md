@@ -25,6 +25,22 @@ python iris_classification.py
 # 4. (Optional) Run without plotting (useful in headless/server env)
 python iris_classification.py --no-plot
 
+Automation scripts:
+- `git_setup_and_push.ps1`: A PowerShell helper that will create SSH keys if needed and attempt an SSH or PAT-based push.
+- `push_to_fork.ps1`: If you cannot push to the upstream repo, use this script after creating a fork and provide your fork SSH URL.
+
+Usage examples:
+```powershell
+# SSH-based push (recommended):
+.\git_setup_and_push.ps1 -Method SSH
+
+# HTTPS + PAT based push (temporarily provide a PAT):
+.\git_setup_and_push.ps1 -Method PAT
+
+# After forking the repo on GitHub, push to your fork:
+.\push_to_fork.ps1 -ForkUrl "git@github.com:your-username/OIBSIP.git"
+```
+
 # 5. (Optional) Provide a custom CSV path and sample
 python iris_classification.py path\to\Iris.csv --sample 5.1 3.5 1.4 0.2
 ```
